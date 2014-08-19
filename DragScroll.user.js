@@ -25,7 +25,6 @@
 		initialTop = $(this).scrollTop();
 		initialX = e.clientX;
 		initialY = e.clientY;
-
 		return false;
 	});
 
@@ -33,9 +32,8 @@
 		if (dragging) {
 			$(this).scrollLeft(initialLeft - (e.clientX - initialX));
 			$(this).scrollTop(initialTop - (e.clientY - initialY));
+			return false;
 		}
-
-		return false;
 	});
 
 	scrollable.mouseup(function () {
