@@ -38,7 +38,7 @@
 		return false;
 	});
 
-	scrollable.mouseup(function () {
+	scrollable.mouseup(function (e) {
 		if (e.which !== 3) {
 			return true;
 		}
