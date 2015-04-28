@@ -29,14 +29,20 @@
 	});
 
 	scrollable.mousemove(function (e) {
-		if (dragging) {
-			$(this).scrollLeft(initialLeft - (e.clientX - initialX));
-			$(this).scrollTop(initialTop - (e.clientY - initialY));
-			return false;
+		if (!dragging) {
+			return true;
 		}
+		
+		$(this).scrollLeft(initialLeft - (e.clientX - initialX));
+		$(this).scrollTop(initialTop - (e.clientY - initialY));
+		return false;
 	});
 
 	scrollable.mouseup(function () {
+		if (e.which !== 3) {
+			return true;
+		}
+		
 		dragging = false;
 		return false;
 	});
